@@ -28,8 +28,9 @@ section {
         h3 {
             margin-top: 2rem;
             margin-bottom: 0;
-            font-size: 28px;
+            font-size: 32px;
             letter-spacing: 1px;
+            text-align: center;
             color: #202731;
         }
 
@@ -39,7 +40,7 @@ section {
             border-radius: 10px;
             width: 350px;
             font-size: 16px;
-            box-shadow: 3px 4px 6px rgba(0, 0, 0, .3);
+            box-shadow: 2px 3px 8px rgba(0, 0, 0, .3);
             background-color: #F8F7FF;
             border: none;
         }
@@ -61,7 +62,7 @@ section {
             letter-spacing: 1px;
             background-color: #202731;
             color: #F8F7FF;
-            transition: all .3s ease;
+            transition: all .5s ease;
         }
 
         button:hover {
@@ -85,8 +86,8 @@ section {
     .curve svg {
         position: relative;
         display: block;
-        width: calc(188% + 1.3px);
-        height: 238px;
+        width: calc(185% + 1.3px);
+        height: 250px;
         transform: rotateY(180deg);
     }
     

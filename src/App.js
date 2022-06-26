@@ -27,7 +27,7 @@ function App() {
         <main>
             <section>
                 <form onSubmit = {handleSubmit}>
-                    <h3>Newsletter</h3>
+                    <h3>Sign up</h3>
                     <div>
                         <input 
                             type = "text" 
@@ -38,7 +38,7 @@ function App() {
                     </div>
                     <div>
                         <input
-                            type = "text" 
+                            type = "email" 
                             name = "email"
                             placeholder = 'E-mail'
                             onChange={handleChange}
