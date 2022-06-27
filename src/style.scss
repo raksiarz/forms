@@ -15,7 +15,7 @@ section {
     background-color: #202731;
 
     form {
-        width: 30vw;
+        min-width: 30vw;
         height: 50vh;
         display: flex;
         flex-direction: column;
@@ -71,27 +71,42 @@ section {
             background-color: #F8F7FF;
             color: #202731;
         }
-    }
 
-    .curve {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        line-height: 0;
-        transform: rotate(180deg);
+        p {
+            font-size: 12px;
+            letter-spacing: .5px;
+
+            span {
+                color: #F8F7FF;
+                cursor: pointer;
+                transition: color .5s ease;
+            }
+
+            span:hover {
+                color: #202731;
+            }
+        }
     }
-    
-    .curve svg {
-        position: relative;
-        display: block;
-        width: calc(185% + 1.3px);
-        height: 250px;
-        transform: rotateY(180deg);
-    }
-    
-    .curve .shape-fill {
-        fill: #DD3F31;
-    }
+}
+
+.curve {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.curve svg {
+    position: relative;
+    display: block;
+    width: calc(185% + 1.3px);
+    height: 250px;
+    transform: rotateY(180deg);
+}
+
+.curve .shape-fill {
+    fill: #DD3F31;
 }
