@@ -1,26 +1,15 @@
 import { motion } from 'framer-motion'
 
-function Register(props) {
+function SignUp(props) {
     return (
-        <motion.div
-            className="main register"
+        <motion.div 
+            className="main sign-in"
             animate = {{ 
                 scale: [0.1, 1.1, 1],
             }}
         >
-            <form 
-                onSubmit = {props.handleSubmit} 
-                className = 'register__form'
-            >
-                <h3 className = 'register__header'>Register</h3>
-                <div>
-                    <input 
-                        type = "text" 
-                        name = "name"
-                        placeholder = 'Name'
-                        onChange={props.handleChange}
-                    />
-                </div>
+            <form className = 'sign-in__form'>
+                <h3 className = 'sign-in__header'>Sign In</h3>
                 <div>
                     <input
                         type = "email" 
@@ -37,11 +26,11 @@ function Register(props) {
                         onChange={props.handleChange}
                     />
                 </div>
-                <button className = 'register__btn'>Register</button>
-                <p>You already have account? <span onClick = {props.changeLogin}>Sign in.</span></p>
+                <button className = 'sign-in__btn'>Sign In</button>
+                <p>Want to create new account? <span onClick={props.changeLogin}>Register.</span></p>
             </form>
         </motion.div>
     )
 }
 
-export default Register
+export default SignUp

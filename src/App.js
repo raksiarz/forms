@@ -2,7 +2,7 @@ import React from 'react'
 import { nanoid } from 'nanoid'
 import './style.scss'
 import Register from './components/Register'
-import SignUp from './components/SignUp'
+import SignUp from './components/SignIn'
 
 function App() {
     const [login, setLogin] = React.useState(false)
@@ -27,7 +27,7 @@ function App() {
         })
     }
 
-    function handleSubmit(event) {
+    function handleRegister(event) {
         event.preventDefault()
         localStorage.setItem(nanoid(), JSON.stringify(data))
         console.log(data)
@@ -36,13 +36,14 @@ function App() {
 
     return (
         <main>
-            {login ? <Register 
-                handleclick = {() => changeLogin()}
-                handlesubmit = {(e) => handleSubmit(e)}
-                handlechange = {(e) => handleChange(e)}
+            {login ? <Register
+                isLogin = {login}
+                changeLogin = {() => changeLogin()}
+                handleSubmit = {(e) => handleRegister(e)}
+                handleChange = {(e) => handleChange(e)}
             /> : 
             <SignUp
-                handleclick = {() => changeLogin()}
+                changeLogin = {() => changeLogin()}
             />}
             <div className = "curve">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
