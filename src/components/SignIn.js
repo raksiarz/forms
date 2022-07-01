@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 function SignUp(props) {
     return (
-        <motion.div 
+        <motion.section 
             className="main sign-in"
             animate = {{ 
                 scale: [0.1, 1.1, 1],
@@ -26,10 +26,14 @@ function SignUp(props) {
                         onChange={props.handleChange}
                     />
                 </div>
-                <button className = 'sign-in__btn'>Sign In</button>
-                <p>Want to create new account? <span onClick={props.changeLogin}>Register.</span></p>
+                <button 
+                    type = "button" 
+                    className = 'sign-in__btn'
+                    onClick = {props.handleLogin}
+                >Sign In</button>
+                <p>Want to create new account? <span onClick={props.changeCard}>Register.</span></p>
             </form>
-        </motion.div>
+        </motion.section>
     )
 }
 

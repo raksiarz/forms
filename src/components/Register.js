@@ -2,14 +2,14 @@ import { motion } from 'framer-motion'
 
 function Register(props) {
     return (
-        <motion.div
+        <motion.section
             className="main register"
             animate = {{ 
                 scale: [0.1, 1.1, 1],
             }}
         >
             <form 
-                onSubmit = {props.handleSubmit} 
+                //onSubmit = {props.handleRegister} 
                 className = 'register__form'
             >
                 <h3 className = 'register__header'>Register</h3>
@@ -37,10 +37,14 @@ function Register(props) {
                         onChange={props.handleChange}
                     />
                 </div>
-                <button className = 'register__btn'>Register</button>
-                <p>You already have account? <span onClick = {props.changeLogin}>Sign in.</span></p>
+                <button 
+                    type = "button" 
+                    className = 'register__btn' 
+                    onClick = {props.handleRegister}
+                >Register</button>
+                <p>You already have account? <span onClick = {props.changeCard}>Sign in.</span></p>
             </form>
-        </motion.div>
+        </motion.section>
     )
 }
 
