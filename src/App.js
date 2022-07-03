@@ -1,13 +1,17 @@
 import React from 'react'
-import { nanoid } from 'nanoid'
 import './style.scss'
 import Register from './components/Register'
 import SignUp from './components/SignIn'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword,
+    onAuthStateChanged, 
+    signOut
+} from 'firebase/auth'
 import { auth } from './firebase.js'
 
 function App() {
-    const [card, setCard] = React.useState(false)
+    const [card, setCard] = React.useState(true)
     const [registerData, setRegisterData] = React.useState({
         name: "",
         email: "",
@@ -17,6 +21,7 @@ function App() {
         email: "",
         password: ""
     })
+    const [user, setUser] = React.useState({})
 
     function changeCard() {
         setCard(prevLogin => (
@@ -44,25 +49,40 @@ function App() {
 
     const register = async () => {
         try {
-            const user = await createUserWithEmailAndPassword(auth, registerData.email, registerData.password)
+            const user = await createUserWithEmailAndPassword(
+                auth, 
+                registerData.email, 
+                registerData.password
+            )
             console.log(user)
+            alert("succesful register")
         } catch(error) {
-            console.log(error.code)
             console.log(error.message)
         }
     }
 
     const login = async () => {
         try {
-            const user = await signInWithEmailAndPassword(auth, loginData.email, loginData.password)
+            const user = await signInWithEmailAndPassword(
+                auth, 
+                loginData.email, 
+                loginData.password
+            )
             console.log(user)
+            alert("succesful login")
         } catch(error) {
             console.log(error.message)
+            alert(error.code)
         }
     }
 
     const logout = async () => {
-
+        try {
+            await signOut(auth)
+            alert("logged out")
+        } catch(error) {
+            console.log(error.message)
+        }
     }
 
     return (
@@ -70,11 +90,13 @@ function App() {
                 {card ? <Register
                     changeCard = {() => changeCard()}
                     handleRegister = {() => register()}
+                    handleLogout = {() => logout()}
                     handleChange = {(e) => handleRegisterChange(e)}
                 /> : 
                 <SignUp
                     changeCard = {() => changeCard()}
                     handleLogin = {() => login()}
+                    handleLogout = {() => logout()}
                     handleChange = {(e) => handleLoginChange(e)}
                 />}
                 <div className = "curve">
@@ -84,6 +106,7 @@ function App() {
                         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" className="shape-fill"></path>
                     </svg>
                 </div>
+                <button className = 'logoutbtn' onClick = {logout}>Log Out</button>
             </main>
     )
 }

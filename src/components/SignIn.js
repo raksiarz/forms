@@ -26,11 +26,19 @@ function SignUp(props) {
                         onChange={props.handleChange}
                     />
                 </div>
-                <button 
+                <motion.button
+                    whileHover={{ 
+                        scale: 1.05,
+                        backgroundColor: "#F8F7FF",
+                        color: "#202731",
+                        boxShadow: "2px 8px 10px rgba(0, 0, 0, .3)"}}
+                    whileTap={{ 
+                        scale: 0.9,
+                        boxShadow: "2px 3px 7px rgba(0, 0, 0, .3)"}} 
                     type = "button" 
                     className = 'sign-in__btn'
                     onClick = {props.handleLogin}
-                >Sign In</button>
+                >Sign In</motion.button>
                 <p>Want to create new account? <span onClick={props.changeCard}>Register.</span></p>
             </form>
         </motion.section>
